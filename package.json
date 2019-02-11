@@ -1,0 +1,56 @@
+{
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development parcel src/index.html ",
+    "build": "cross-env NODE_ENV=production parcel build src/index.html --no-minify --public-url /"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.4.7",
+    "babel-plugin-jsx-control-statements": "^4.0.0",
+    "babel-preset-react-app": "^7.0.1",
+    "parcel-bundler": "latest",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "babel-plugin-react-css-modules": "^5.0.0",
+    "cross-env": "^5.1.1",
+    "postcss": "^7.0.14",
+    "postcss-modules": "^1.4.1",
+    "prettier": "^1.16.4"
+  },
+  "babel": {
+    "plugins": [
+      "babel-plugin-jsx-control-statements",
+      [
+        "babel-plugin-react-css-modules",
+        {
+          "generateScopedName": "[path]_[name]_[local]",
+          "handleMissingStyleName": "warn"
+        }
+      ]
+    ],
+    "presets": [
+      "@babel/preset-env",
+      "babel-preset-react-app"
+    ]
+  },
+  "postcss": {
+    "modules": true,
+    "plugins": {
+      "autoprefixer": {
+        "grid": true
+      },
+      "postcss-modules": {
+        "generateScopedName": "[path]_[name]_[local]"
+      }
+    }
+  }
+}
